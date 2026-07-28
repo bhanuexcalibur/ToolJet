@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="dark">
+  <title>ToolJet · Bhanu Kumar · PMM Launch Strategy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700;800&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #060609;
+      --bg2: #0c0d12;
+      --bg3: #141620;
+      --bg4: #1b1f2b;
+      --bg5: #232a3a;
+      --bdr: rgba(255,255,255,0.06);
+      --bmd: rgba(255,255,255,0.12);
+      --t1: #f1f2f5;
+      --t2: #8d92a3;
+      --t3: #5a616f;
+      --accent: #6d5aff;
+      --accent-dim: rgba(109,90,255,0.10);
+      --accent-glow: rgba(109,90,255,0.24);
+      --accent-t: #8f77ff;
+      --sec: #00d9ff;
+      --sec-dim: rgba(0,217,255,0.10);
+      --sec-glow: rgba(0,217,255,0.20);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 60px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--t1);
+      font-family: 'Manrope', system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(720px 480px at 8% -8%, rgba(109,90,255,0.08), transparent 60%),
+        radial-gradient(640px 440px at 94% 12%, rgba(0,217,255,0.06), transparent 60%);
+    }
+
+    ::selection {
+      background: var(--accent-dim);
+      color: var(--t1);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, svg {
+      display: block;
+    }
+
+    .pbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--sec));
+      z-index: 500;
+      width: 0%;
+      transition: width 0.1s linear;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 300;
+      background: rgba(6,6,9,0.93);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--bdr);
+      padding: 0 5vw;
+    }
+
+    .nav-i {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      gap: 16px;
+    }
+
+    .nav-brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t1);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-brand .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--accent-glow);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2px;
+      flex-wrap: wrap;
+    }
+
+    .np {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 6px;
+      border: 1px solid transparent;
+      color: var(--t2);
+      background: transparent;
+      text-decoration: none;
+      transition: all 0.13s;
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.01em;
+    }
+
+    .np:hover {
+      border-color: var(--bdr);
+      color: var(--t1);
+      background: var(--bg3);
+    }
+
+    .np.cta {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .np.cta:hover {
+      opacity: 0.88;
+    }
+
+    .hbg {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hbg span {
+      display: block;
+      width: 20px;
+      height: 1.5px;
+      background: var(--t1);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hbg.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hbg.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hbg.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mob-menu {
+      display: none;
+      position: fixed;
+      inset: 0;
+      top: 60px;
+      background: var(--bg);
+      z-index: 290;
+      flex-direction: column;
+      padding: 26px 5vw;
+      gap: 0;
+      border-top: 1px solid var(--bdr);
+    }
+
+    .mob-menu.open {
+      display: flex;
+    }
+
+    .mob-menu a {
+      display: block;
+      font-size: 18px;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--t1);
+      padding: 15px 0;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .mob-menu a:last-child {
+      border-bottom: none;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .hbg { display: flex; }
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5vw;
+      position: relative;
+      z-index: 1;
+    }
+
+    section.part {
+      padding: 84px 0;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .rv {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .rv.in {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 96px 5vw 60px;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+      border-bottom: 1px solid var(--bdr);
+    }
+
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--t3);
+      margin-bottom: 22px;
+    }
+
+    .hero-hed {
+      font-family: 'Newsreader', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(36px, 5.8vw, 64px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--t1);
+      margin-bottom: 18px;
+      max-width: 880px;
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: var(--t2);
+      max-width: 640px;
+      line-height: 1.8;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    /* DEMO AREA */
+    .demo-container {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 12px;
+      padding: 40px;
+      margin-bottom: 20px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .demo-screen {
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .demo-toolbar {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .demo-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg3);
+    }
+
+    .demo-dot.red { background: #ff5f57; }
+    .demo-dot.yellow { background: #ffbd2e; }
+    .demo-dot.green { background: #28c940; }
+
+    .demo-content {
+      background: var(--bg3);
+      border: 1px solid var(--bdr);
+      border-radius: 8px;
+      padding: 32px;
+    }
+
+    .demo-title {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 24px;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+    }
+
+    .demo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .demo-item {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 8px;
+      padding: 16px;
+      min-height: 80px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .demo-item.show {
+      animation: slideIn 0.6s ease forwards;
+    }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .demo-item:nth-child(1) { animation-delay: 0.2s; }
+    .demo-item:nth-child(2) { animation-delay: 0.4s; }
+    .demo-item:nth-child(3) { animation-delay: 0.6s; }
+    .demo-item:nth-child(4) { animation-delay: 0.8s; }
+
+    .demo-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--sec);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    .demo-val {
+      font-size: 13px;
+      color: var(--t1);
+      font-weight: 500;
+    }
+
+    .demo-timeline {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--bg3);
+      border: 2px solid var(--bdr);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .timeline-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    .timeline-dot:hover {
+      transform: scale(1.3);
+    }
+
+    .timeline-line {
+      width: 40px;
+      height: 2px;
+      background: var(--bdr);
+    }
+
+    /* SECTIONS */
+    .sec-hed {
+      font-family: 'Newsreader', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(28px, 4.2vw, 48px);
+      line-height: 1.15;
+      color: var(--t1);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+
+    .sec-sub {
+      font-size: 16px;
+      color: var(--t2);
+      margin-bottom: 40px;
+      line-height: 1.7;
+      max-width: 720px;
+    }
+
+    /* CARDS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin: 48px 0;
+    }
+
+    .card {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 10px;
+      padding: 32px 28px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      background: var(--bg3);
+      transform: translateY(-4px);
+    }
+
+    .card-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--sec);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 12px;
+    }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.7;
+    }
+
+    /* DELIVERABLE SECTION */
+    .deliverable {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 10px;
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+
+    .deliverable-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .deliverable-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: var(--accent-dim);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .deliverable-content {
+      font-size: 14px;
+      color: var(--t2);
+      line-height: 1.8;
+    }
+
+    .deliverable-content strong {
+      color: var(--t1);
+    }
+
+    /* WORK SECTION */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 48px 0;
+    }
+
+    .work-item {
+      background: var(--bg2);
+      border: 1px solid var(--bdr);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .work-item:hover {
+      border-color: var(--sec);
+      background: var(--bg3);
+      transform: translateY(-3px);
+    }
+
+    .work-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--t1);
+      margin-bottom: 4px;
+    }
+
+    .work-role {
+      font-size: 11px;
+      color: var(--t2);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--bdr);
+      padding: 48px 5vw;
+      margin-top: 80px;
+    }
+
+    .footer-i {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 32px;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-brand-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--t1);
+      letter-spacing: 0.02em;
+    }
+
+    .footer-brand-sub {
+      font-size: 13px;
+      color: var(--t2);
+      font-weight: 400;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .footer-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--t2);
+      transition: all 0.2s;
+    }
+
+    .footer-link:hover {
+      color: var(--accent);
+    }
+
+    .footer-icon {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-bottom {
+      font-size: 12px;
+      color: var(--t3);
+      font-family: 'JetBrains Mono', monospace;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 680px) {
+      .hero {
+        padding: 72px 5vw 48px;
+      }
+
+      section.part {
+        padding: 56px 0;
+      }
+
+      .demo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="pbar"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-i">
+      <a href="#" class="nav-brand">
+        <span class="dot"></span>
+        <b>ToolJet</b>
+        <span>by Bhanu</span>
+      </a>
+      <div class="nav-links">
+        <a href="#messaging" class="np">Messaging</a>
+        <a href="#assets" class="np">Launch Assets</a>
+        <a href="#positioning" class="np">Positioning</a>
+        <a href="#work" class="np">Work</a>
+        <a href="#contact" class="np cta">Connect</a>
+      </div>
+      <button class="hbg" id="hbg">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="mob-menu" id="mobmenu">
+      <a href="#messaging">Messaging</a>
+      <a href="#assets">Launch Assets</a>
+      <a href="#positioning">Positioning</a>
+      <a href="#work">Work</a>
+      <a href="#contact" class="mcta">Connect</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="rv">
+      <p class="hero-eyebrow">PMM Launch Strategy</p>
+      <h1 class="hero-hed">Positioning ToolJet's AI-native capabilities for enterprise buyers</h1>
+      <p class="hero-sub">Launch strategy, messaging framework, and execution assets for ToolJet's AI feature suite. Focus on enterprise value: speed, governance, and no vendor lock-in.</p>
+    </div>
+
+    <!-- ANIMATED DEMO -->
+    <div class="demo-container rv" style="margin-top: 56px; margin-bottom: 0;">
+      <div class="demo-screen">
+        <div class="demo-toolbar">
+          <div class="demo-dot red"></div>
+          <div class="demo-dot yellow"></div>
+          <div class="demo-dot green"></div>
+        </div>
+        <div class="demo-content">
+          <div class="demo-title">Building an Employee Dashboard with ToolJet AI</div>
+          <div class="demo-grid" id="demoGrid">
+            <div class="demo-item">
+              <div class="demo-label">Drag & Drop</div>
+              <div class="demo-val">Table, Form, Chart</div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-label">Connect APIs</div>
+              <div class="demo-val">PostgreSQL, REST</div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-label">AI Automation</div>
+              <div class="demo-val">Natural language queries</div>
+            </div>
+            <div class="demo-item">
+              <div class="demo-label">Deploy</div>
+              <div class="demo-val">Self-hosted in minutes</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="demo-timeline">
+          <div class="timeline-dot active" onclick="resetDemo()"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+          <div class="timeline-line"></div>
+          <div class="timeline-dot"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSITIONING STATEMENT -->
+  <section class="part" id="positioning">
+    <div class="wrap rv">
+      <h2 class="sec-hed">Positioning Thesis</h2>
+      <p class="sec-sub">ToolJet's differentiation lies in three pillars. Enterprise buyers care about speed and control. Own that clearly.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-label">Pillar 1</div>
+          <h3 class="card-title">AI-Native from Day One</h3>
+          <p class="card-desc">Unlike Retool's bolted-on AI, ToolJet's architecture lets you write business logic in natural language. Faster iterations for internal tools.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Pillar 2</div>
+          <h3 class="card-title">Open Source, Self-Hosted</h3>
+          <p class="card-desc">No vendor lock-in. Deploy on your infrastructure. Enterprise compliance teams sleep at night. Retool can't match this.</p>
+        </div>
+        <div class="card">
+          <div class="card-label">Pillar 3</div>
+          <h3 class="card-title">Built for Speed</h3>
+          <p class="card-desc">Internal tools shouldn't take 3 months. ToolJet delivers working dashboards and workflows in days, not quarters.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MESSAGING FRAMEWORK -->
+  <section class="part" id="messaging">
+    <div class="wrap rv">
+      <h2 class="sec-hed">Messaging by Persona</h2>
+      <p class="sec-sub">Different buyers care about different things. Here's how to position ToolJet to each.</p>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">👨‍💻</div>
+          For Developers (IC)
+        </div>
+        <div class="deliverable-content">
+          <strong>Core message:</strong> Stop building repetitive backends. Use ToolJet to ship internal tools without boilerplate. <strong>Proof:</strong> GitHub stars, community templates, low-code builder.
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">🏗️</div>
+          For Tech Leads / Architects
+        </div>
+        <div class="deliverable-content">
+          <strong>Core message:</strong> Reduce tool sprawl. Self-hosted, auditable, no SaaS fatigue. <strong>Proof:</strong> RBAC, API control, self-hosting docs.
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">💼</div>
+          For Enterprise Buyers (IT/Procurement)
+        </div>
+        <div class="deliverable-content">
+          <strong>Core message:</strong> Ditch expensive legacy tools. ToolJet is cheaper, faster, and you control your data. <strong>Proof:</strong> SOC2, open source, deployment flexibility, TCO calculator.
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">🎯</div>
+          For CTOs (Buyers of Buyer's Buyer)
+        </div>
+        <div class="deliverable-content">
+          <strong>Core message:</strong> Invest in a platform, not point solutions. AI-native architecture that scales. <strong>Proof:</strong> Analyst reports, customer count, funding (Microsoft backing).
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAUNCH ASSETS -->
+  <section class="part" id="assets">
+    <div class="wrap rv">
+      <h2 class="sec-hed">Launch Assets</h2>
+      <p class="sec-sub">These are the actual deliverables an Associate PMM ships. Below is what you'd build for the AI-native positioning launch.</p>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">📄</div>
+          Battle Card: ToolJet vs Retool
+        </div>
+        <div class="deliverable-content">
+          <strong>What it says:</strong><br>
+          ✓ AI-native: ToolJet native, Retool=plugin<br>
+          ✓ Self-hosted: Both, but ToolJet open source<br>
+          ✓ Cost: ToolJet wins on TCO for enterprises<br>
+          ✓ Speed: ToolJet 2x faster with AI<br>
+          <strong>Who uses it:</strong> Sales team in discovery calls
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">📧</div>
+          Launch Email Sequence
+        </div>
+        <div class="deliverable-content">
+          <strong>Email 1 (Subject):</strong> "Why we built AI into ToolJet's core"<br>
+          <strong>Body teaser:</strong> Most low-code tools bolt on AI. ToolJet's architecture is different. Here's why it matters for enterprise teams.<br>
+          <strong>CTA:</strong> See the demo<br><br>
+          <strong>Email 2:</strong> Social proof (customer quote on speed)<br>
+          <strong>Email 3:</strong> ROI angle (vs. hiring contractors)<br>
+          <strong>Who it reaches:</strong> Warm leads, existing users
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">🎬</div>
+          Product Announcement
+        </div>
+        <div class="deliverable-content">
+          <strong>Platform:</strong> LinkedIn, Product Hunt, Dev.to<br>
+          <strong>Headline:</strong> "We built AI directly into ToolJet. No plugins. No config hell."<br>
+          <strong>Body:</strong> Show side-by-side comparison of traditional vs ToolJet AI (write a query in English, see results instantly)<br>
+          <strong>CTA:</strong> Try the open source version
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">📊</div>
+          1-Pager: Enterprise Value Prop
+        </div>
+        <div class="deliverable-content">
+          <strong>Sections:</strong><br>
+          • Problem (tool sprawl, long build cycles)<br>
+          • Solution (ToolJet as platform)<br>
+          • Why now (AI changes the game)<br>
+          • Competitive advantage (open source + AI)<br>
+          • ROI (40% faster deployments)<br>
+          <strong>Design:</strong> Single page, printable, use in sales calls
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">💬</div>
+          Sales Deck: Discovery to Close
+        </div>
+        <div class="deliverable-content">
+          <strong>Slide flow:</strong><br>
+          1. Problem discovery (their pain)<br>
+          2. ToolJet positioning (speed + control)<br>
+          3. Why AI matters (competitive angle)<br>
+          4. Live demo (real customer example)<br>
+          5. Case study proof<br>
+          6. Deployment options (onprem/cloud)<br>
+          7. ROI math<br>
+          8. Next steps
+        </div>
+      </div>
+
+      <div class="deliverable">
+        <div class="deliverable-title">
+          <div class="deliverable-icon">📖</div>
+          Case Study: Enterprise Win
+        </div>
+        <div class="deliverable-content">
+          <strong>Template narrative:</strong><br>
+          Company: Mid-size financial firm (relevant to your ICP)<br>
+          Challenge: Built internal tools in-house, took 4 months per tool<br>
+          Solution: Chose ToolJet for speed + self-hosting compliance<br>
+          Result: Ship internal tools in 3 weeks, save contractor costs<br>
+          Quote: "We got control back without hiring more engineers."
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OTHER WORK -->
+  <section class="part" id="work">
+    <div class="wrap rv">
+      <h2 class="sec-hed">Other Relevant Work</h2>
+      <p class="sec-sub">Similar PMM strategies for developer platforms and enterprise SaaS.</p>
+
+      <div class="work-grid">
+        <a href="https://bhanuexcalibur.github.io/Supabase/" target="_blank" class="work-item">
+          <div class="work-title">Supabase</div>
+          <div class="work-role">Developer Platform</div>
+        </a>
+        <a href="https://bhanuexcalibur.github.io/Plane/" target="_blank" class="work-item">
+          <div class="work-title">Plane</div>
+          <div class="work-role">Product Launch</div>
+        </a>
+        <a href="https://bhanuexcalibur.github.io/Coram_AI_Growth_Marketing_PoW.html" target="_blank" class="work-item">
+          <div class="work-title">Coram AI</div>
+          <div class="work-role">Growth Strategy</div>
+        </a>
+        <a href="https://bhanuexcalibur.github.io/Razorpay/" target="_blank" class="work-item">
+          <div class="work-title">Razorpay</div>
+          <div class="work-role">Developer PMM</div>
+        </a>
+        <a href="https://bhanuexcalibur.github.io/Canonical/" target="_blank" class="work-item">
+          <div class="work-title">Canonical</div>
+          <div class="work-role">Enterprise GTM</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-i">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-brand-text">Bhanu Kumar (Excalibur)</div>
+          <div class="footer-brand-sub">Product Marketing & Growth</div>
+        </div>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/bhanuexcalibur" target="_blank" class="footer-link">
+            <div class="footer-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </div>
+            LinkedIn
+          </a>
+          <a href="mailto:bhanukumar0902@gmail.com" class="footer-link">
+            <div class="footer-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                <path d="m22 7-10 5L2 7"></path>
+              </svg>
+            </div>
+            Email
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        Based on ToolJet's public materials, GitHub repository, and official announcements. This represents strategic positioning and launch planning for the AI-native feature set. <br><br>Last updated: July 2026
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Progress bar
+    let scrollProgress = 0;
+    window.addEventListener('scroll', () => {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      scrollProgress = scrollHeight > 0 ? (window.scrollY / scrollHeight) * 100 : 0;
+      document.querySelector('.pbar').style.width = scrollProgress + '%';
+    });
+
+    // Reveal on scroll
+    const revealElements = document.querySelectorAll('.rv');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // Animate demo on load
+    function resetDemo() {
+      const items = document.querySelectorAll('.demo-item');
+      items.forEach(item => {
+        item.classList.remove('show');
+      });
+      setTimeout(() => {
+        items.forEach(item => {
+          item.classList.add('show');
+        });
+      }, 50);
+    }
+
+    window.addEventListener('load', resetDemo);
+
+    // Mobile menu
+    const hbg = document.getElementById('hbg');
+    const mobmenu = document.getElementById('mobmenu');
+
+    hbg.addEventListener('click', () => {
+      hbg.classList.toggle('open');
+      mobmenu.classList.toggle('open');
+    });
+
+    mobmenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hbg.classList.remove('open');
+        mobmenu.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
