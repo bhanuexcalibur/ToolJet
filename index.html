@@ -305,149 +305,7 @@
       font-weight: 400;
     }
 
-    /* DEMO AREA */
-    .demo-container {
-      background: var(--bg2);
-      border: 1px solid var(--bdr);
-      border-radius: 12px;
-      padding: 40px;
-      margin-bottom: 20px;
-      min-height: 420px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .demo-screen {
-      width: 100%;
-      max-width: 700px;
-    }
-
-    .demo-toolbar {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 24px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .demo-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--bg3);
-    }
-
-    .demo-dot.red { background: #ff5f57; }
-    .demo-dot.yellow { background: #ffbd2e; }
-    .demo-dot.green { background: #28c940; }
-
-    .demo-content {
-      background: var(--bg3);
-      border: 1px solid var(--bdr);
-      border-radius: 8px;
-      padding: 32px;
-    }
-
-    .demo-title {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--t1);
-      margin-bottom: 24px;
-      font-family: 'Newsreader', serif;
-      font-style: italic;
-    }
-
-    .demo-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .demo-item {
-      background: var(--bg2);
-      border: 1px solid var(--bdr);
-      border-radius: 8px;
-      padding: 16px;
-      min-height: 80px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      flex-direction: column;
-      opacity: 0;
-      transform: translateY(10px);
-    }
-
-    .demo-item.show {
-      animation: slideIn 0.6s ease forwards;
-    }
-
-    @keyframes slideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .demo-item:nth-child(1) { animation-delay: 0.2s; }
-    .demo-item:nth-child(2) { animation-delay: 0.4s; }
-    .demo-item:nth-child(3) { animation-delay: 0.6s; }
-    .demo-item:nth-child(4) { animation-delay: 0.8s; }
-
-    .demo-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11px;
-      color: var(--sec);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    .demo-val {
-      font-size: 13px;
-      color: var(--t1);
-      font-weight: 500;
-    }
-
-    .demo-timeline {
-      display: flex;
-      gap: 12px;
-      margin-top: 32px;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .timeline-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--bg3);
-      border: 2px solid var(--bdr);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .timeline-dot.active {
-      background: var(--accent);
-      border-color: var(--accent);
-      box-shadow: 0 0 12px var(--accent-glow);
-    }
-
-    .timeline-dot:hover {
-      transform: scale(1.3);
-    }
-
-    .timeline-line {
-      width: 40px;
-      height: 2px;
-      background: var(--bdr);
-    }
-
-    /* SECTIONS */
+/* SECTIONS */
     .sec-hed {
       font-family: 'Newsreader', serif;
       font-weight: 400;
@@ -676,11 +534,11 @@
         padding: 56px 0;
       }
 
-      .demo-grid {
+      .card-grid {
         grid-template-columns: 1fr;
       }
 
-      .card-grid {
+      .preview-grid {
         grid-template-columns: 1fr;
       }
 
@@ -732,45 +590,352 @@
       <p class="hero-sub">Launch strategy, messaging framework, and execution assets for ToolJet's AI feature suite. Focus on enterprise value: speed, governance, and no vendor lock-in.</p>
     </div>
 
-    <!-- ANIMATED DEMO -->
-    <div class="demo-container rv" style="margin-top: 56px; margin-bottom: 0;">
-      <div class="demo-screen">
-        <div class="demo-toolbar">
-          <div class="demo-dot red"></div>
-          <div class="demo-dot yellow"></div>
-          <div class="demo-dot green"></div>
-        </div>
-        <div class="demo-content">
-          <div class="demo-title">Building an Employee Dashboard with ToolJet AI</div>
-          <div class="demo-grid" id="demoGrid">
-            <div class="demo-item">
-              <div class="demo-label">Drag & Drop</div>
-              <div class="demo-val">Table, Form, Chart</div>
+    <!-- HERO DELIVERABLES PREVIEW -->
+    <div class="hero-preview rv" style="margin-top: 56px; margin-bottom: 0;">
+      <p style="font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--t3); margin-bottom: 22px;">What an Associate PMM ships on day 1</p>
+      
+      <div class="preview-grid">
+        <!-- BATTLE CARD -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-icon">📊</div>
+            <div>
+              <div class="preview-title">Battle Card</div>
+              <div class="preview-subtitle">vs Retool</div>
             </div>
-            <div class="demo-item">
-              <div class="demo-label">Connect APIs</div>
-              <div class="demo-val">PostgreSQL, REST</div>
+          </div>
+          
+          <div class="preview-content">
+            <div class="battle-row">
+              <div class="battle-label">AI Architecture</div>
+              <div class="battle-item positive">
+                <span class="check">✓</span>
+                <span>Native</span>
+              </div>
+              <div class="battle-item negative">
+                <span class="cross">✗</span>
+                <span>Plugin</span>
+              </div>
             </div>
-            <div class="demo-item">
-              <div class="demo-label">AI Automation</div>
-              <div class="demo-val">Natural language queries</div>
+            
+            <div class="battle-row">
+              <div class="battle-label">Self-Hosted</div>
+              <div class="battle-item positive">
+                <span class="check">✓</span>
+                <span>Open Source</span>
+              </div>
+              <div class="battle-item negative">
+                <span class="cross">✗</span>
+                <span>Proprietary</span>
+              </div>
             </div>
-            <div class="demo-item">
-              <div class="demo-label">Deploy</div>
-              <div class="demo-val">Self-hosted in minutes</div>
+
+            <div class="battle-row">
+              <div class="battle-label">Enterprise TCO</div>
+              <div class="battle-item positive">
+                <span class="check">✓</span>
+                <span>40% Lower</span>
+              </div>
+              <div class="battle-item negative">
+                <span class="cross">✗</span>
+                <span>Premium Pricing</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="demo-timeline">
-          <div class="timeline-dot active" onclick="resetDemo()"></div>
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
-          <div class="timeline-line"></div>
-          <div class="timeline-dot"></div>
+        <!-- LAUNCH EMAIL -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-icon">📧</div>
+            <div>
+              <div class="preview-title">Launch Email</div>
+              <div class="preview-subtitle">Day 1 to Warm Leads</div>
+            </div>
+          </div>
+          
+          <div class="preview-content email-preview">
+            <div class="email-subject">Subject: Why we built AI into ToolJet's core</div>
+            
+            <div class="email-body">
+              <p>Most low-code tools bolt on AI as an afterthought.</p>
+              
+              <p>ToolJet is different. We rebuilt our entire architecture to make AI a first-class citizen.</p>
+              
+              <p><strong>What this means for you:</strong></p>
+              <ul>
+                <li>Write business logic in plain English</li>
+                <li>Ship internal tools 2x faster</li>
+                <li>No vendor lock-in</li>
+              </ul>
+
+              <div class="email-cta">See the difference</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SALES DECK SNIPPET -->
+        <div class="preview-card">
+          <div class="preview-header">
+            <div class="preview-icon">💬</div>
+            <div>
+              <div class="preview-title">Sales Deck</div>
+              <div class="preview-subtitle">Discovery Talking Points</div>
+            </div>
+          </div>
+          
+          <div class="preview-content deck-preview">
+            <div class="deck-point">
+              <div class="deck-num">1</div>
+              <div class="deck-text">
+                <strong>Problem:</strong> Building internal tools takes months
+              </div>
+            </div>
+
+            <div class="deck-point">
+              <div class="deck-num">2</div>
+              <div class="deck-text">
+                <strong>Solution:</strong> ToolJet + AI for speed + control
+              </div>
+            </div>
+
+            <div class="deck-point">
+              <div class="deck-num">3</div>
+              <div class="deck-text">
+                <strong>Why now:</strong> AI changes internal tool economics
+              </div>
+            </div>
+
+            <div class="deck-point">
+              <div class="deck-num">4</div>
+              <div class="deck-text">
+                <strong>Next step:</strong> 15-min product walkthrough
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+
+    <style>
+      .hero-preview {
+        margin-bottom: 0;
+      }
+
+      .preview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+        margin: 40px 0;
+      }
+
+      .preview-card {
+        background: var(--bg2);
+        border: 1px solid var(--bdr);
+        border-radius: 10px;
+        padding: 28px;
+        transition: all 0.3s ease;
+      }
+
+      .preview-card:hover {
+        border-color: var(--accent);
+        background: var(--bg3);
+        transform: translateY(-4px);
+      }
+
+      .preview-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--bdr);
+      }
+
+      .preview-icon {
+        font-size: 24px;
+        line-height: 1;
+      }
+
+      .preview-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--t1);
+        margin-bottom: 4px;
+      }
+
+      .preview-subtitle {
+        font-size: 12px;
+        color: var(--t2);
+        font-family: 'JetBrains Mono', monospace;
+      }
+
+      /* BATTLE CARD */
+      .preview-content {
+        font-size: 13px;
+      }
+
+      .battle-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 14px;
+        align-items: center;
+      }
+
+      .battle-label {
+        font-weight: 600;
+        color: var(--t1);
+        font-size: 12px;
+      }
+
+      .battle-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 10px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+
+      .battle-item.positive {
+        background: rgba(74, 222, 128, 0.12);
+        color: #4ade80;
+        border: 1px solid rgba(74, 222, 128, 0.2);
+      }
+
+      .battle-item.negative {
+        background: rgba(239, 68, 68, 0.12);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+      }
+
+      .check, .cross {
+        font-weight: 700;
+      }
+
+      /* EMAIL PREVIEW */
+      .email-preview {
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .email-subject {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 11px;
+        color: var(--sec);
+        font-weight: 600;
+        margin-bottom: 14px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--bdr);
+      }
+
+      .email-body {
+        color: var(--t2);
+      }
+
+      .email-body p {
+        margin-bottom: 10px;
+      }
+
+      .email-body p:first-of-type {
+        color: var(--t1);
+        font-weight: 500;
+      }
+
+      .email-body ul {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0;
+      }
+
+      .email-body li {
+        padding: 4px 0;
+        padding-left: 16px;
+        position: relative;
+      }
+
+      .email-body li:before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--sec);
+      }
+
+      .email-cta {
+        margin-top: 14px;
+        padding: 10px 14px;
+        background: var(--accent-dim);
+        border: 1px solid var(--accent);
+        border-radius: 6px;
+        color: var(--accent-t);
+        text-align: center;
+        font-weight: 600;
+        font-size: 11px;
+      }
+
+      /* DECK PREVIEW */
+      .deck-preview {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .deck-point {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 12px;
+        background: var(--bg3);
+        border-radius: 6px;
+        border-left: 3px solid var(--accent);
+      }
+
+      .deck-num {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .deck-text {
+        font-size: 12px;
+        color: var(--t2);
+        line-height: 1.5;
+      }
+
+      .deck-text strong {
+        color: var(--t1);
+      }
+
+      @media (max-width: 680px) {
+        .preview-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .battle-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+
+        .battle-label {
+          margin-bottom: 6px;
+          grid-column: 1;
+        }
+
+        .battle-item {
+          width: 100%;
+        }
+      }
+    </style>
   </div>
 
   <!-- POSITIONING STATEMENT -->
@@ -1034,21 +1199,6 @@
     }, { threshold: 0.1 });
 
     revealElements.forEach(el => observer.observe(el));
-
-    // Animate demo on load
-    function resetDemo() {
-      const items = document.querySelectorAll('.demo-item');
-      items.forEach(item => {
-        item.classList.remove('show');
-      });
-      setTimeout(() => {
-        items.forEach(item => {
-          item.classList.add('show');
-        });
-      }, 50);
-    }
-
-    window.addEventListener('load', resetDemo);
 
     // Mobile menu
     const hbg = document.getElementById('hbg');
